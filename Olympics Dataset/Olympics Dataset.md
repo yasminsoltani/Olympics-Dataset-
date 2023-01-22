@@ -50,6 +50,10 @@ SELECT COUNT(DISTINCT(Games)) as NumberOfGames
 FROM athlete_events$
 ```
 
+
+##### Asnwer:
+
+
 #### 2. List down all Olympics games held so far.
 ### Problem statement: Write a SQL query to list down all the Olympic Games held so far
 
@@ -58,6 +62,9 @@ SELECT DISTINCT Year, Season, City
 FROM athlete_events$
 ORDER BY Year
 ```
+
+##### Asnwer:
+
 
 #### 3. Mention the total no of nations who participated in each olympics game?
 ### Problem statement: SQL query to fetch total no of countries participated in each olympic games
@@ -76,3 +83,6 @@ FROM all_countries
 GROUP BY Games
 ORDER BY Games 
 ```
+
+##### Asnwer:
+
