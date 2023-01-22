@@ -74,8 +74,8 @@ with all_countries as
 
 (SELECT  Distinct Games, reg.noc
 FROM athlete_events$ ev
-JOIN noc_regions$ reg --joining the other table
-ON ev.noc = reg.noc --setting noc number of columns to be the same
+JOIN noc_regions$ reg 
+ON ev.noc = reg.noc 
 GROUP BY Games, reg.noc) 
 
 SELECT Games, count(1) as total_countires
