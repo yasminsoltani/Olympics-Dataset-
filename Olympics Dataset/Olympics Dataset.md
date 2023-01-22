@@ -1,4 +1,4 @@
-# Olympics Dataset ![MinkaMadebyminkaGIF](https://user-images.githubusercontent.com/103854541/213895143-9ed18daa-4665-4e3b-957c-45867333b08a.gif)
+# Olympics Dataset! ![Olympics2020GIF](https://user-images.githubusercontent.com/103854541/213895210-d40024c5-6db4-478e-907d-06ef78f83a80.gif)
 
 
 ### Welcome to my Olympics Dataset Project!
