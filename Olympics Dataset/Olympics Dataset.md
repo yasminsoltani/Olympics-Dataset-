@@ -12,23 +12,23 @@ Kaggle Dataset Download [Link](https://www.kaggle.com/datasets/heesoo37/120-year
 
 #### Table 1: athlete_events
 
-| column | type         |    
-| ------ | ------------ |
-| ID     | FLOAT        |
-| Name   | VARCHAR(255) |
-| Sex    | VARCHAR(255) |
-| Age    | FLOAT        |
-| Height | FLOAT        |
-| Weight | FLOAT        |
-| Team   | VARCHAR(255) |
-| NOC    | VARCHAR(255) |
-| Games  | VARCHAR(255) |
-| Year   | FLOAT        |
-| Season | VARCHAR(255) |
-| City   | VARCHAR(255) |
-| Sport  | VARCHAR(255) |
-| Event  | VARCHAR(255) |
-| Medal  | VARCHAR(255) |
+| column   | type         |    
+| -------- | ------------ |
+| ID       | FLOAT        |
+| Name     | VARCHAR(255) |
+| Sex      | VARCHAR(255) |
+| Age      | FLOAT        |
+| Height   | FLOAT        |
+| Weight   | FLOAT        |
+| Team     | VARCHAR(255) |
+| NOC      | VARCHAR(255) |
+| Games    | VARCHAR(255) |
+| Year     | FLOAT        |
+| Season   | VARCHAR(255) |
+| City     | VARCHAR(255) |
+| Sport    | VARCHAR(255) |
+| Event    | VARCHAR(255) |
+| Medal    | VARCHAR(255) |
 
 
 #### Table 2: noc_regions 
