@@ -146,3 +146,56 @@ ORDER BY Games
 
 ##### Asnwer:
 
+| Games       | total_countries |
+| ----------- | --------------- |
+| 1896 Summer	| 12              |
+| 1900 Summer	| 31              |
+| 1904 Summer	| 15              |
+| 1906 Summer	| 21              |
+| 1908 Summer	| 22              |
+| 1912 Summer	| 29              |
+| 1920 Summer	| 29              |
+| 1924 Summer	| 45              |
+| 1924 Winter	| 19              |
+| 1928 Summer	| 46              |
+| 1928 Winter	| 25              |
+| 1932 Summer	| 47              |
+| 1932 Winter	| 17              |
+| 1936 Summer	| 49              |
+| 1936 Winter	| 28              |
+| 1948 Summer	| 58              |
+| 1948 Winter	| 28              |
+| 1952 Summer	| 68              |
+| 1952 Winter	| 30              |
+| 1956 Summer	| 71              |
+| 1956 Winter	| 32              |
+| 1960 Summer	| 83              |
+| 1960 Winter	| 30              |
+| 1964 Summer	| 93              |
+| 1964 Winter	| 36              |
+| 1968 Summer	| 111             |
+| 1968 Winter	| 37              |
+| 1972 Summer	| 120             |
+| 1972 Winter	| 35              |
+| 1976 Summer	| 91
+| 1976 Winter	| 37
+| 1980 Summer	| 80
+| 1980 Winter	| 37
+| 1984 Summer	| 139
+| 1984 Winter	| 49
+| 1988 Summer	| 158
+| 1988 Winter	| 57
+| 1992 Summer	| 168
+| 1992 Winter	| 64
+| 1994 Winter	| 67
+| 1996 Summer	| 196
+| 1998 Winter	| 72
+| 2000 Summer	| 199
+| 2002 Winter	| 77
+| 2004 Summer	| 200
+| 2006 Winter	| 79
+| 2008 Summer	| 203
+| 2010 Winter	| 82
+| 2012 Summer	| 204
+| 2014 Winter	| 89
+| 2016 Summer	| 206
