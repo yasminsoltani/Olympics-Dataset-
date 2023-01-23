@@ -403,3 +403,31 @@ order by no_of_sports desc
 | 1960 Winter	| 8
 | 1956 Winter	| 8
 | 1932 Winter	| 7
+
+
+#### 9. Fetch oldest athletes to win a gold medal
+SQL Query to fetch the details of the oldest athletes to win a gold medal at the olympics
+
+```sql
+SELECT TOP 2 name, sex, age, team, games, city, sport, event, medal 
+FROM athlete_events$
+WHERE Medal = 'Gold'
+ORDER BY AGE desc
+```
+
+##### Asnwer:
+
+| name              | sex | age | team          | games       | city      | sport    | event                                            | medal | 
+| ----------------- | --- | --- | ------------- | ----------- | --------- | -------- | ------------------------------------------------ | ----- |
+| Oscar Gomer Swahn | M	  | 64	 | Sweden	       | 1912 Summer	| Stockholm	| Shooting	| Shooting Men's Running Target, Single Shot, Team |	Gold  |
+| Charles Jacobus   |	M	  | 64	 | United States |	1904 Summer	| St. Louis	| Roque    |	Roque Men's Singles	                             | Gold  |
+
+
+#### 10. Find the Ratio of male and female athletes participated in all olympic games
+Write a SQL query to get the ratio of male and female participants
+
+| ratio   |
+| ------- |
+| 1: 2.00 |
+
+
