@@ -53,6 +53,11 @@ FROM athlete_events$
 
 ##### Asnwer:
 
+| NumberOfGames |    
+| ------------- |
+| 51            |
+
+
 
 #### 2. List down all Olympics games held so far.
  Problem statement: Write a SQL query to list down all the Olympic Games held so far
@@ -64,6 +69,61 @@ ORDER BY Year
 ```
 
 ##### Asnwer:
+
+| Year | Season | City
+| ---- | ------ | ---------------------- |
+| 1896	| Summer |	Athina                 |
+| 1900	| Summer	| Paris                  |
+| 1904	| Summer	| St. Louis              |
+| 1906	| Summer	| Athina                 | 
+| 1908	| Summer	| London                 |
+| 1912	| Summer	| Stockholm              | 
+| 1920	| Summer	| Antwerpen              |
+| 1924	| Winter	| Chamonix               |
+| 1924	| Summer	| Paris                  |
+| 1928	| Summer	| Amsterdam              |
+| 1928	| Winter	| Sankt Moritz           |
+| 1932	| Summer	| Los Angeles            |
+| 1932	| Winter	| Lake Placid            |
+| 1936	| Summer	| Berlin                 |
+| 1936	| Winter	| Garmisch-Partenkirchen |
+| 1948	| Summer	| London                 |
+| 1948	| Winter	| Sankt Moritz           |
+| 1952	| Winter	| Oslo                   |
+| 1952	| Summer	| Helsinki               |
+| 1956	| Summer	| Melbourne              |
+| 1956	| Winter	| Cortina d'Ampezzo      |
+| 1956	| Summer	| Stockholm              |
+| 1960	| Winter	| Squaw Valley           |
+| 1960	| Summer	| Roma                   |
+| 1964	| Summer	| Tokyo                  |
+| 1964	| Winter	| Innsbruck              |
+| 1968	| Winter	| Grenoble               |
+| 1968	| Summer	| Mexico City            |
+| 1972	| Summer	| Munich                 |
+| 1972	| Winter	| Sapporo                |
+| 1976	| Winter	| Innsbruck              |
+| 1976	| Summer	| Montreal               |
+| 1980	| Winter	| Lake Placid            |
+| 1980	| Summer	| Moskva                 |
+| 1984	| Summer	| Los Angeles            |
+| 1984	| Winter	| Sarajevo               |
+| 1988	| Winter	| Calgary                |
+| 1988	| Summer	| Seoul                  |
+| 1992	| Summer	| Barcelona              |
+| 1992	| Winter	| Albertville            |
+| 1994	| Winter	| Lillehammer            |
+| 1996	| Summer	| Atlanta                |
+| 1998	| Winter	| Nagano                 |
+| 2000	| Summer	| Sydney                 |
+| 2002	| Winter	| Salt Lake City         |
+| 2004	| Summer	| Athina                 |
+| 2006	| Winter	| Torino                 |
+| 2008	| Summer	| Beijing                |
+| 2010	| Winter	| Vancouver              |
+| 2012	| Summer	| London                 |
+| 2014	| Winter	| Sochi                  |
+| 2016	| Summer	| Rio de Janeiro         |
 
 
 #### 3. Mention the total no of nations who participated in each olympics game?
