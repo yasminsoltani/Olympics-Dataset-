@@ -565,139 +565,145 @@ PIVOT --converts rows into columns
 
 | country                     | gold | silver | bronze |
 | --------------------------- | ---- | ------ | ------ |
-| USA	                        | 2638	| 1641	  | 1358
-| Russia                      |	1599	| 1170	  | 1178
-| Germany                     |	1301	| 1195	  | 1260
-| UK                          |	678	 | 739	   | 651
-| Italy	                      | 575	 | 531	   | 531
-| France	                     | 501	 | 610	   | 666
-| Sweden	                     | 479	 | 522	   | 535
-| Canada	                     | 463	 | 438	   | 451
-| Hungary	                    | 432	 | 332	   | 371
-| Norway	                     | 378	 | 361	   | 294
-| Australia	                  | 368	 | 459	   | 522
-| China	                      | 351	 | 349	   | 293
-| Netherlands                 |	287	 | 340	   | 413
-| Japan	                      | 247	 | 309	   | 357
-| South Korea	                | 221	 | 232	   | 185
-| Finland	                    | 198	 | 270	   | 432
-| Denmark	                    | 179	 | 241	   | 177
-| Switzerland	                | 175	 | 248   	| 268
-| Cuba	                       | 164	 | 129	   | 116
-| Romania	                    | 161	 | 200	   | 292
-| Serbia	                     | 157	 | 222	   | 160
-| India	                      | 138	 | 19	    | 40
-| Czech Republic	             | 123	 | 262	   | 259
-| Poland	                     | 117	 | 195	   | 253
-| Spain	                      | 110	 | 243	   | 136
-| Brazil	                     | 109	 | 175	   | 191
-| Austria	                    | 108	 | 186	   | 156
-| Belgium	                    | 98   |	197	   | 173
-| Argentina	                  | 91	  | 92	    | 91
-| New Zealand                 |	90	  | 56	    | 82
-| Greece	                     | 62	  | 109    |	84
-| Croatia	                    | 58	  | 54	    | 37
-| Bulgaria	                   | 54	  | 144	   | 144
-| Ukraine	                    | 47	  | 52	    | 100
-| Pakistan	                   | 42	  | 45	    | 34
-| Turkey	                     | 40	27	28
-| Jamaica	                    | 38	75	44
-| Kenya	                      | 34	41	31
-| South Africa	               | 32	47	52
-| Uruguay	                    | 31	2	30
-| Mexico	                     | 30	26	54
-| Belarus	                    | 24	44	71
-| Nigeria                     |	23	30	46
-| Ethiopia	                   | 22	9	22
-| Kazakhstan	                 | 20	25	32
-| Cameroon                    |	20	1	1
-| Iran	                       | 18	21	29
-| Zimbabwe	                   | 17	4	1
-| North Korea	                | 16	16	35
-| Slovakia	                   | 15	19	13
-| Bahamas	                    | 14	11	15
-| Estonia	                    | 13	12	25
-| Fiji	                       | 13	0	0
-| Indonesia	                  | 11	17	13
-| Uzbekistan	                 | 10	7	17
-| Ireland	                    | 9	13	13
-| Thailand	                   | 9	8	13
-| Slovenia	                   | 8	13	27
-| Georgia	                    | 8	6	18
-| Azerbaijan	                 | 7	12	25
-| Trinidad	                   | 7	8	22
-| Egypt	                      | 7	8	12
-| Lithuania                   |	6	7	48
-| Morocco                     |	6	5	12
-| Colombia	                   | 5	9	14
-| Algeria                     |	5	4	8
-| Portugal	                   | 4	11	26
-| Luxembourg	                 | 4	4	0
-| Taiwan	                     | 3	28	18
-| Latvia	                     | 3	19	13
-| Chile	                      | 3	9	20
-| Tunisia	                    | 3	3	7
-| Dominican Republic	         | 3	2	2
-| Mongolia	                   | 2	10	14
-| Armenia	                    | 2	5	9
-| Venezuela	                  | 2	3	10
-| Uganda	                     | 2	3	2
-| Liechtenstein	              | 2	2	5
-| Peru	                       | 1	14	0
-| Vietnam	                    | 1	3	0
-| Puerto Rico	                | 1	2	6
-| Syria	                      | 1	2	2
-| Israel	                     | 1	1	7
-| Haiti	                      | 1	1	5
-| Individual Olympic Athletes	| 1	1	3
-| Costa Rica                  |	1	1	2
-| Tajikistan	                 | 1	1	2
-| Bahrain	                    | 1	1	1
-| Ivory Coast                 |	1	1	1
-| Grenada                     |	1	1	0
-| Burundi	                    | 1	1	0
-| Ecuador	                    | 1	1	0
-| Panama	                     | 1	0	2
-| Mozambique	                 | 1	0	1
-| Suriname	                   | 1	0	1
-| United Arab Emirates        |	1	0	1
-| Nepal	                      | 1	0	0
-| Jordan	                     | 1	0	0
-| Kosovo	                     | 1	0	0
-| Paraguay	                   | 0	17	0
-| Iceland	                    | 0	15	2
-| Montenegro	                 | 0	14	0
-| Malaysia	                   | 0	11	5
-| Namibia	                    | 0	4	0
-| Philippines	                | 0	3	7
-| Moldova	                    | 0	3	5
-| Lebanon	                    | 0	2	2
-| Sri Lanka	                  | 0	2	0
-| Tanzania	                   | 0	2	0
-| Ghana	                      | 0	1	22
-| Saudi Arabia	               | 0	1	5
-| Qatar	                      | 0	1	4
-| Kyrgyzstan	                 | 0	1	2
-| Niger	                      | 0	1	1
-| Zambia	                     | 0	1	1
-| Tonga	                      | 0	1	0
-| Virgin Islands, US	         | 0	1	0
-| Senegal	                    | 0	1	0
-| Sudan	                      | 0	1	0
-| Guatemala                   |	0	1	0
-| Gabon	                      | 0	1	0
-| Curacao	                    | 0	1	0
-| Cyprus	                     | 0	1	0
-| Botswana	                   | 0	1	0
-| Afghanistan	                | 0	0	2
-| Kuwait	                     | 0	0	2
-| Iraq	                       | 0	0	1
-| Guyana	                     | 0	0	1
-| Barbados	                   | 0	0	1
-| Bermuda	                    | 0	0	1
-| Djibouti	                   | 0	0	1
-| Eritrea	                    | 0	0	1
-| Monaco	                     | 0	0	1
-| Mauritius	                  | 0	0	1
-| Macedonia	                  | 0	0	1
-| Togo	                       | 0	0	1
+| USA	                      | 2638 | 1641   | 1358
+| Russia                      |	1599 | 1170   | 1178
+| Germany                     |	1301 | 1195   | 1260
+| UK                          |	678  | 739    | 651
+| Italy	                      | 575  | 531    | 531
+| France	              | 501  | 610    | 666
+| Sweden	              | 479  | 522    | 535
+| Canada	              | 463  | 438    | 451
+| Hungary	              | 432  | 332    | 371
+| Norway	              | 378  | 361    | 294
+| Australia	              | 368  | 459    | 522
+| China	                      | 351  | 349    | 293
+| Netherlands                 |	287  | 340    | 413
+| Japan	                      | 247  | 309    | 357
+| South Korea	              | 221  | 232    | 185
+| Finland	              | 198  | 270    | 432
+| Denmark	              | 179  | 241    | 177
+| Switzerland	              | 175  | 248    | 268
+| Cuba	                      | 164  | 129    | 116
+| Romania	              | 161  | 200    | 292
+| Serbia	              | 157  | 222    | 160
+| India	                      | 138  | 19     | 40
+| Czech Republic	      | 123  | 262    | 259
+| Poland	              | 117  | 195    | 253
+| Spain	                      | 110  | 243    | 136
+| Brazil	              | 109  | 175    | 191
+| Austria	              | 108  | 186    | 156
+| Belgium	              | 98   | 197    | 173
+| Argentina	              | 91   | 92     | 91
+| New Zealand                 |	90   | 56     | 82
+| Greece	              | 62   | 109    |	84
+| Croatia	              | 58   | 54     | 37
+| Bulgaria	              | 54   | 144    | 144
+| Ukraine	              | 47   | 52     | 100
+| Pakistan	              | 42   | 45     | 34
+| Turkey	              | 40   | 27     | 28
+| Jamaica	              | 38   | 75     | 44
+| Kenya	                      | 34   | 41     | 31
+| South Africa	              | 32   | 47     | 52
+| Uruguay	              | 31   | 2      | 30
+| Mexico	              | 30   | 26     | 54
+| Belarus	              | 24   | 44     | 71
+| Nigeria                     |	23   | 30     | 46
+| Ethiopia	              | 22   | 9      | 22
+| Kazakhstan	              | 20   | 25     | 32
+| Cameroon                    |	20   | 1      | 1
+| Iran	                      | 18   | 21     | 29
+| Zimbabwe	              | 17   | 4      | 1
+| North Korea	              | 16   | 16     | 35
+| Slovakia	              | 15   | 19     | 13
+| Bahamas	              | 14   | 11     | 15
+| Estonia	              | 13   | 12     | 25
+| Fiji	                      | 13   | 0      | 0
+| Indonesia	              | 11   | 17     | 13
+| Uzbekistan	              | 10   | 7      | 17
+| Ireland	              | 9    | 13     | 13
+| Thailand	              | 9    | 8      | 13
+| Slovenia	              | 8    | 13     | 27
+| Georgia	              | 8    | 6      | 18
+| Azerbaijan	              | 7    | 12     | 25
+| Trinidad	              | 7    | 8      | 22
+| Egypt	                      | 7    | 8      | 12
+| Lithuania                   |	6    | 7      | 48
+| Morocco                     |	6    | 5      | 12
+| Colombia	              | 5    | 9      | 14
+| Algeria                     |	5    | 4      | 8
+| Portugal	              | 4    | 11     | 26
+| Luxembourg	              | 4    | 4      | 0
+| Taiwan	              | 3    | 28     | 18
+| Latvia	              | 3    | 19     | 13
+| Chile	                      | 3    | 9      | 20
+| Tunisia	              | 3    | 3      | 7
+| Dominican Republic	      | 3    | 2      | 2
+| Mongolia	              | 2    | 10     | 14
+| Armenia	              | 2    | 5      | 9
+| Venezuela	              | 2    | 3      | 10
+| Uganda	              | 2    | 3      | 2
+| Liechtenstein	              | 2    | 2      | 5
+| Peru	                      | 1    | 14     | 0
+| Vietnam	              | 1    | 3      | 0
+| Puerto Rico	              | 1    | 2      | 6
+| Syria	                      | 1    | 2      | 2
+| Israel	              | 1    | 1      | 7
+| Haiti	                      | 1    | 1      | 5
+| Individual Olympic Athletes | 1    | 1      | 3
+| Costa Rica                  |	1    | 1      | 2
+| Tajikistan	              | 1    | 1      | 2
+| Bahrain	              | 1    | 1      | 1
+| Ivory Coast                 |	1    | 1      | 1
+| Grenada                     |	1    | 1      | 0
+| Burundi	              | 1    | 1      | 0
+| Ecuador	              | 1    | 1      | 0
+| Panama	              | 1    | 0      | 2
+| Mozambique	              | 1    | 0      | 1
+| Suriname	              | 1    | 0      | 1
+| United Arab Emirates        |	1    | 0      | 1
+| Nepal	                      | 1    | 0      | 0
+| Jordan	              | 1    | 0      | 0
+| Kosovo	              | 1    | 0      | 0
+| Paraguay	              | 0    | 17     | 0
+| Iceland	              | 0    | 15     | 2
+| Montenegro	              | 0    | 14     | 0
+| Malaysia	              | 0    | 11     | 5
+| Namibia	              | 0    | 4      | 0
+| Philippines	              | 0    | 3      | 7
+| Moldova	              | 0    | 3      | 5
+| Lebanon	              | 0    | 2      | 2
+| Sri Lanka	              | 0    | 2      | 0
+| Tanzania	              | 0    | 2      | 0
+| Ghana	                      | 0    | 1      | 22
+| Saudi Arabia	              | 0    | 1      | 5
+| Qatar	                      | 0    | 1      | 4
+| Kyrgyzstan	              | 0    | 1      | 2
+| Niger	                      | 0    | 1      | 1
+| Zambia	              | 0    | 1      | 1
+| Tonga	                      | 0    | 1      | 0
+| Virgin Islands, US	      | 0    | 1      | 0
+| Senegal	              | 0    | 1      | 0
+| Sudan	                      | 0    | 1      | 0
+| Guatemala                   |	0    | 1      | 0
+| Gabon	                      | 0    | 1      | 0
+| Curacao	              | 0    | 1      | 0
+| Cyprus	              | 0    | 1      | 0
+| Botswana	              | 0    | 1      | 0
+| Afghanistan	              | 0    | 0      | 2
+| Kuwait	              | 0    | 0      | 2
+| Iraq	                      | 0    | 0      | 1
+| Guyana	              | 0    | 0      | 1
+| Barbados	              | 0    | 0      | 1
+| Bermuda	              | 0    | 0      | 1
+| Djibouti	              | 0    | 0      | 1
+| Eritrea	              | 0    | 0      | 1
+| Monaco	              | 0    | 0      | 1
+| Mauritius	              | 0    | 0      | 1
+| Macedonia	              | 0    | 0      | 1
+| Togo	                      | 0    | 0      | 1
+
+
+#### 15. List down total gold, silver and bronze medals won by each country corresponding to each olympic games
+Write a SQL query to list down the  total gold, silver and bronze medals won by each country corresponding to each olympic games
+
+
