@@ -199,3 +199,140 @@ ORDER BY Games
 | 2012 Summer	| 204
 | 2014 Winter	| 89
 | 2016 Summer	| 206
+
+
+#### 4. Which year saw the highest and lowest no of countries participating in olympics
+Write a SQL query to return the Olympic Games which had the highest participating countries and the lowest participating countries
+
+```sql
+with all_countries as
+
+(SELECT  Distinct Games, reg.noc
+FROM athlete_events$ ev
+JOIN noc_regions$ reg 
+ON ev.noc = reg.noc 
+GROUP BY Games, reg.noc),
+
+Tot_Countries as
+(
+SELECT Games, count(1) as total_countries
+FROM all_countries
+GROUP BY Games
+)
+
+SELECT DISTINCT
+CONCAT(first_value(Games) over (order by total_countries), ' - '
+, first_value(total_countries) over(order by total_countries)) as Lowest_Countries, 
+ concat(first_value(Games) over(order by total_countries desc), ' - '
+ , first_value(total_countries) over(order by total_countries desc)) as Highest_Countries
+      from tot_countries
+      order by 1; 
+```
+
+##### Asnwer:
+
+| Lowest_Countries | Highest_Countries |
+| ---------------- | ----------------- |
+| 1896 Summer - 12	| 2016 Summer - 206 |
+
+
+#### 5. Which nation has participated in all of the olympic games
+SQL query to return the list of countries who have been part of every Olympics games
+
+```sql
+WITH countries as
+(SELECT Games, reg.noc as country
+FROM athlete_events$ ev
+JOIN noc_regions$ reg --joining the other table
+ON ev.noc = reg.noc --setting noc number of columns to be the same
+GROUP BY Games, reg.noc),
+
+games as
+(SELECT country, COUNT(DISTINCT Games) as total_number_games
+FROM countries
+GROUP BY country)
+
+SELECT country, total_number_games
+FROM games
+WHERE total_number_games >= (SELECT COUNT(DISTINCT Games) FROM countries)
+ORDER BY total_number_games desc
+```
+
+##### Asnwer:
+
+| country | total_number_games |
+| ------- | ------------------ |
+| FRA	    | 51
+| GBR	    | 51
+| ITA	    | 51
+| SUI	    | 51
+
+
+#### 6. Identify the sport which was played in all summer olympics
+SQL query to fetch the list of all sports which have been part of every olympics
+
+```sql
+With t1 as
+(Select count(distinct Games) as total_summer_games
+FROM athlete_events$ 
+WHERE Season = 'Summer'
+),
+t2 as
+(SELECT DISTINCT Sport, Games
+FROM athlete_events$
+WHERE Season = 'Summer'
+),
+
+t3 as
+(SELECT Sport, Count(Games) as no_of_games
+from t2
+group by Sport)
+
+SELECT *
+FROM t3
+JOIN t1 
+on t1.total_summer_games = t3.no_of_games
+```
+
+##### Asnwer:
+
+| Sport      | no_of_games | total_summer_games |
+| ---------- | ----------- | ------------------ |
+| Gymnastics |	29          |	29                 |
+| Fencing    |	29	         | 29                 |
+| Swimming   |	29	         | 29                 |
+| Cycling  	 | 29	         | 29                 |
+| Athletics  |	29	         | 29                 |
+
+
+#### 7. Which Sports were just played only once in the olympics
+Using SQL query, Identify the sport which were just played once in all of olympics
+
+```sql
+WITH t1 as
+(SELECT Sport, COUNT(DISTINCT Games) as no_of_games
+FROM athlete_events$
+GROUP BY Sport
+)
+
+SELECT Sport, no_of_games
+FROM t1
+WHERE no_of_games = 1 
+ORDER BY Sport 
+```
+
+##### Asnwer:
+
+| Sport               | no_of_games |
+| ------------------- | ----------- |
+| Aeronautics	        | 1
+| Basque Pelota	      | 1
+| Cricket	            | 1
+| Croquet	            | 1
+| Jeu De Paume       	| 1
+| Military Ski Patrol	| 1
+| Motorboating	       | 1
+| Racquets	           | 1
+| Roque	              | 1
+| Rugby Sevens	       | 1
+
