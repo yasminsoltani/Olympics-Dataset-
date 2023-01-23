@@ -336,3 +336,70 @@ ORDER BY Sport
 | Roque	              | 1
 | Rugby Sevens	       | 1
 
+
+#### 8. Fetch the total no of sports played in each olympic games
+Write SQL query to fetch the total no of sports played in each olympics
+
+```sql
+
+SELECT Games, count(DISTINCT (Sport)) as no_of_sports
+from athlete_events$
+group by games
+order by no_of_sports desc 
+```
+
+##### Asnwer:
+
+| Games       | no_of_sports |
+| ----------- | ------------ |
+| 2016 Summer	| 34
+| 2008 Summer	| 34
+| 2004 Summer	| 34
+| 2000 Summer	| 34
+| 2012 Summer	| 32
+| 1996 Summer	| 31
+| 1992 Summer	| 29
+| 1988 Summer	| 27
+| 1984 Summer	| 25
+| 1920 Summer	| 25
+| 1908 Summer	| 24
+| 1936 Summer	| 24
+| 1976 Summer	| 23
+| 1980 Summer	| 23
+| 1972 Summer	| 23
+| 1964 Summer	| 21
+| 1968 Summer	| 20
+| 1900 Summer	| 20
+| 1924 Summer	| 20
+| 1948 Summer	| 20
+| 1952 Summer	| 19
+| 1956 Summer	| 19
+| 1960 Summer	| 19
+| 1904 Summer	| 18
+| 1932 Summer	| 18
+| 1912 Summer	| 17
+| 1928 Summer	| 17
+| 2006 Winter	| 15
+| 2014 Winter	| 15
+| 2010 Winter	| 15
+| 2002 Winter	| 15
+| 1998 Winter	| 14
+| 1906 Summer	| 13
+| 1992 Winter	| 12
+| 1994 Winter	| 12
+| 1964 Winter	| 10
+| 1972 Winter	| 10
+| 1976 Winter	| 10
+| 1968 Winter	| 10
+| 1988 Winter	| 10
+| 1980 Winter	| 10
+| 1984 Winter	| 10
+| 1924 Winter	| 10
+| 1896 Summer	| 9
+| 1948 Winter	| 9
+| 1952 Winter	| 8
+| 1928 Winter	| 8
+| 1936 Winter	| 8
+| 1960 Winter	| 8
+| 1956 Winter	| 8
+| 1932 Winter	| 7
