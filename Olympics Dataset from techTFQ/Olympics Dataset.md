@@ -766,7 +766,7 @@ Write a SQL query to list down the  total gold, silver and bronze medals won by 
 |UK|	1900 Summer	|59	|34	|15
 |USA|	1900 Summer	|30	|16	|17
 |Australia|	1904 Summer	|0	|3	|1
-|Austria|	1904 Summer	2	1	1
+|Austria|	1904 Summer	|2	|1	|1
 |Canada	|1904 Summer	|27	|9	|12
 |Cuba	|1904 Summer	|5	|0	|0
 |France|	1904 Summer	|0	|2	|0
