@@ -706,4 +706,122 @@ PIVOT --converts rows into columns
 #### 15. List down total gold, silver and bronze medals won by each country corresponding to each olympic games
 Write a SQL query to list down the  total gold, silver and bronze medals won by each country corresponding to each olympic games
 
+```sql
+ SELECT n.region, Games, 
+ SUM(CASE WHEN Medal = 'Gold' THEN 1 ELSE 0 END) as gold,
+ SUM(CASE WHEN Medal = 'Silver' THEN 1 ELSE 0 END) as silver,
+ SUM(CASE WHEN Medal = 'Bronze' THEN 1 ELSE 0 END) as bronze
+ FROM noc_regions$ n
+ INNER JOIN athlete_events$ a
+ ON n.noc = a.noc
+ GROUP BY region, games
+ ORDER BY Games
+ ```
+ 
+ ##### Asnwer:
+
+| region | Games | gold | silver | bronze | 
+| ------ | ------ | ---- | ----- | -------- | 
+| Australia | 	1896 Summer	| 2	| 0	| 1
+|Austria| 1896 Summer	|2	|1	|2
+| Denmark|	1896 Summer	|1	|2	|3
+| France|	1896 Summer	|5	|4	|2
+| Germany|	1896 Summer	|25	|5	|2
+|Greece|	1896 Summer	|10	|18	|20
+|Hungary|	1896 Summer	|2	|1	|3
+|Italy|	1896 Summer	|0	|0	|0
+|Sweden	|1896 Summer	|0	|0	|0
+|Switzerland|	1896 Summer	|1	|2	|0
+|UK	|1896 Summer	|3	|3	|3
+|USA	|1896 Summer	|11	|7	|2
+|Argentina	|1900 Summer	|0	|0	|0
+|Australia|	1900 Summer	|3	|0	|3
+|Austria|	1900 Summer	|0	|3	|3
+|Belgium|	1900 Summer	|6	|24	|13
+| Brazil|	1900 Summer	|0	|0	|0
+|Canada	|1900 Summer	|1	|0	|1
+|Colombia|	1900 Summer	|0	|1	|0
+|Cuba|	1900 Summer	|1	|1	|0
+|Czech Republic|	1900 Summer	|0	|1	|2
+|Denmark|	1900 Summer	|4	|3	|2
+|France|	1900 Summer	|52	|101	|82
+|Germany|	1900 Summer	|14	|20	|11
+|Greece|	1900 Summer	|0	|0	|0
+|Haiti	|1900 Summer	|1	|0	|0
+|Hungary|	1900 Summer	|1	|2	|2
+|India	|1900 Summer	|0	|2	|0
+|Iran	|1900 Summer	|0	|0	|0
+|Italy|	1900 Summer	|3	|2	|0
+|Luxembourg|	1900 Summer	|1	|0	|0
+|Mexico|	1900 Summer	|0	|0	|3
+|Netherlands|	1900 Summer	|3	|8	|16
+|New Zealand|	1900 Summer	|1	|0	|0
+|Norway	|1900 Summer	|0	|6	|3
+|Peru|	1900 Summer	|0	|0	|0
+|Romania|	1900 Summer	|0	|0	|0
+|Russia|	1900 Summer	|0	|0	|0
+|Spain|	1900 Summer	|2	|0	|0
+|Sweden	|1900 Summer	|3	|0	|1
+|Switzerland|	1900 Summer	|16	|4	|1
+|UK|	1900 Summer	|59	|34	|15
+|USA|	1900 Summer	|30	|16	|17
+|Australia|	1904 Summer	|0	|3	|1
+|Austria|	1904 Summer	2	1	1
+|Canada	|1904 Summer	|27	|9	|12
+|Cuba	|1904 Summer	|5	|0	|0
+|France|	1904 Summer	|0	|2	|0
+|Germany|	1904 Summer	|4	|5	|7
+|Greece|	1904 Summer	|1	|0|	1
+|Hungary|	1904 Summer	|2|	1|	1
+|Italy	|1904 Summer	|0	|0|	0
+|Norway|	1904 Summer	|2	|0	|0
+|South Africa|	1904 Summer	|0	|0	|0
+|Switzerland|	1904 Summer	|1	|0	|2
+|UK	|1904 Summer	|1	|1	|0
+|USA	|1904 Summer|	128	|141	|125
+|Australia|	1906 Summer|	0	|0	|3
+|Austria|	1906 Summer	|3	|3	|3
+|Belgium|	1906 Summer|	2	|3	|6
+|Canada	|1906 Summer	|1	|1	|0
+|Czech Republic|	1906 Summer|	0|	0|	3
+|Denmark|	1906 Summer	|14	|19	|1
+|Egypt|	1906 Summer	|0	|0	|0
+|Finland|	1906 Summer	|2	|1	|1
+|France|	1906 Summer	|20	|16	|28
+|Germany|	1906 Summer	|14	|10	|6
+|Greece|	1906 Summer	|24	|48	|30
+|Hungary|	1906 Summer	|5	|5	|3
+|Italy	|1906 Summer	|21	|8	|27
+|Netherlands|	1906 Summer	|0	|1	|5
+|Norway	|1906 Summer	|20	|5	|0
+|Sweden	|1906 Summer	|2	|5	|14
+|Switzerland|	1906 Summer	|8	|3	|1
+|Turkey|	1906 Summer	|0	|0	|0
+|UK|	1906 Summer	|9	|22	|8
+|USA|	1906 Summer	|12	|6	|6
+|Argentina|	1908 Summer|	0	|0|	0
+|Australia|	1908 Summer	|15| 2	| 2
+|Austria|	1908 Summer	|0|	0| 1
+|Belgium|	1908 Summer	|1|	24|	8
+|Canada|	1908 Summer	|14|	8|	30
+|Czech Republic	|1908 Summer	|0	|0|	6
+|Denmark|	1908 Summer|	0|	14|	3
+|Finland|	1908 Summer	|1	|1	|28
+|France|	1908 Summer	|12	|5|	23
+|Germany|	1908 Summer|	4	|11|	6
+|Greece|	1908 Summer|	0|	3|	1
+|Hungary|	1908 Summer|	7|	7	|6
+|Iceland|	1908 Summer|	0|	0	|0
+|Italy|	1908 Summer|	2|	6|	0
+|Netherlands|	1908 Summer	|0|	0|	16
+|Norway|	1908 Summer|	7|	32|	3
+|Russia|	1908 Summer|	1	|2|	0
+|South Africa|	1908 Summer|	1|	1|	0
+|Sweden	|1908 Summer	|48	|18|	18
+|Switzerland|	1908 Summer|	0	|0|	0
+|UK|	1908 Summer|	147	|131	|90
+|USA|	1908 Summer	|34	|16	|15
+|Australia|	1912 Summer|	5|	2|	3
+
+##### showing up to 100th record only
 
