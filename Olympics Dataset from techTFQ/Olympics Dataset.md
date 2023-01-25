@@ -507,32 +507,35 @@ ORDER BY tot_number_medals desc
 Write a SQL query to fetch the top 5 most successful countries in olympics. (Success is defined by no of medals won)
 ```sql
 
-WITH countries as
-(
-SELECT Team, COUNT(Medal) as tot_number_medals
-FROM athlete_events$
-WHERE Medal IN ('Gold', 'Silver', 'Bronze')
-GROUP BY Team),
 
-rank as
+WITH countries AS
+( SELECT n.region, count(medal) AS total_medals
+            FROM athlete_events$ a
+            JOIN noc_regions$ n 
+			ON n.noc = a.noc
+            WHERE medal <> 'NA'
+            GROUP BY n.region),
+
+rank AS
 (SELECT *, 
-DENSE_RANK() over (order by tot_number_medals desc) as rnk
+DENSE_RANK() OVER (ORDER BY total_medals DESC) AS rnk
 FROM countries)
 
-Select Team, tot_number_medals, rnk
+SELECT *
 FROM rank
-WHERE rnk <=5;
+WHERE rnk <=5
+ORDER BY total_medals DESC
 ```
 
 ##### Asnwer:
 
 | Team          | tot_number_medals | rnk |
 | ------------- | ----------------- | --- |
-| United States	| 5219	             | 1
-| Soviet Union	 | 2451	             | 2
-| Germany	      | 1984	             | 3
-| Great Britain |	1673	             | 4
-| France        |	1550	             | 5
+| USA	| 5637	             | 1
+| Russia	 | 3947	             | 2
+| Germany	      | 3756	             | 3
+| UK |	2068	             | 4
+| France        |	1777	             | 5
 
 
 #### 14. List down total gold, silver and bronze medals won by each country.
