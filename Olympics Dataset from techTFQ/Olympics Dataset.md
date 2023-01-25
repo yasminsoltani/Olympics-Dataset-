@@ -1076,6 +1076,6 @@ order by silver, bronze desc
 |Moldova	|0	|3	|5
 |Namibia	|0	|4	|0
 |Malaysia	|0	|11	|5
-|Montenegro	|0	|14	|0|
-|Iceland|	|0	|15	|2|
-|Paraguay|	|0	|17	|0|
+|Montenegro	|0	|14	|0
+|Iceland|	0	|15	|2
+|Paraguay|	0	|17	|0
