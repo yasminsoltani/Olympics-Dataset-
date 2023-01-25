@@ -5,7 +5,7 @@
 
 This project was inspired by techTFQ [YouTube Channel](https://www.youtube.com/@techTFQ)
 
-You can find the link for the project on this [link]([here](https://techtfq.com/blog/practice-writing-sql-queries-using-real-dataset) or you can view my solution [here](https://github.com/yasminsoltani/Olympics-Dataset-/blob/main/Olympics%20Dataset%20from%20techTFQ/Olympics%20Dataset.md)
+You can find the link for the project on this [link](https://techtfq.com/blog/practice-writing-sql-queries-using-real-dataset) or you can view my solution [here](https://github.com/yasminsoltani/Olympics-Dataset-/blob/main/Olympics%20Dataset%20from%20techTFQ/Olympics%20Dataset.md)
 
 
 
