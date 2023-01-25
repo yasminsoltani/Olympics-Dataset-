@@ -310,31 +310,35 @@ Using SQL query, Identify the sport which were just played once in all of olympi
 
 ```sql
 WITH t1 as
-(SELECT Sport, COUNT(DISTINCT Games) as no_of_games
+(SELECT distinct games, Sport
 FROM athlete_events$
-GROUP BY Sport
-)
+),
+t2 as
+(SELECT sport, Count(games) as no_of_games
+from t1
+group by sport)
 
-SELECT Sport, no_of_games
-FROM t1
-WHERE no_of_games = 1 
-ORDER BY Sport 
+ select t2.*, t1.games
+ from t2
+ join t1 on t1.sport = t2.sport
+ where t2.no_of_games = 1
+ order by sport;
 ```
 
 ##### Asnwer:
 
-| Sport               | no_of_games |
-| ------------------- | ----------- |
-| Aeronautics	        | 1
-| Basque Pelota	      | 1
-| Cricket	            | 1
-| Croquet	            | 1
-| Jeu De Paume       	| 1
-| Military Ski Patrol	| 1
-| Motorboating	       | 1
-| Racquets	           | 1
-| Roque	              | 1
-| Rugby Sevens	       | 1
+| Sport               | no_of_games | games |
+| ------------------- | ----------- | ------ |
+| Aeronautics	        | 1 | 1936 Summer
+| Basque Pelota	      | 1|1900 Summer
+| Cricket	            | 1|1900 Summer
+| Croquet	            | 1|1900 Summer
+| Jeu De Paume       	| 1|1908 Summer
+| Military Ski Patrol	| 1|1924 Winter
+| Motorboating	       | 1|1908 Summer
+| Racquets	           | 1|1908 Summer
+| Roque	              | 1|1904 Summer
+| Rugby Sevens	       | 1|2016 Summer
 
 
 #### 8. Fetch the total no of sports played in each olympic games
