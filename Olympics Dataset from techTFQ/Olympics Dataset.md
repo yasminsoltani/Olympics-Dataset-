@@ -1079,3 +1079,23 @@ order by silver, bronze desc
 |Montenegro	|0	|14	|0
 |Iceland|	0	|15	|2
 |Paraguay|	0	|17	|0
+
+
+#### 19. In which Sport/event, India has won highest medals
+Write SQL Query to return the sport which has won India the highest no of medals
+
+```sql
+
+SELECT top 1 sport, count(medal) as tot_medals
+from athlete_events$
+where team = 'India'
+and medal != 'NA'
+group by sport
+order by tot_medals desc
+```
+
+ ##### Asnwer:
+|sport| tot_medals|
+|----|---------|
+| Hockey | 173 | 
+Hockey	173
