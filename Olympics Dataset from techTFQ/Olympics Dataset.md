@@ -794,6 +794,7 @@ Write a SQL query to list down the  total gold, silver and bronze medals won by 
 
 
 #### 16. Identify which country won the most gold, most silver and most bronze medals in each olympic games
+Write SQL query to display for each Olympic Games, which country won the highest gold, silver and bronze medals
 
 ```sql
  with temp as 
@@ -894,4 +895,123 @@ PIVOT --converts rows into columns
 |2012 Summer|	USA - 145|	USA - 57|	Australia - 59
 |2014 Winter|	Canada - 59|	Sweden - 32|	USA - 24
 |2016 Summer|	USA - 139|	UK - 55|	USA - 71
+
+
+#### 17. Identify which country won the most gold, most silver, most bronze medals and the most medals in each olympic games
+Similar to the previous query, identify during each Olympic Games, which country won the highest gold, silver and bronze medals. Along with this, identify also the country with the most medals in each olympic games
+
+```sql
+with temp as 
+ (
+SELECT substring(games_country, 1,  11 ) as games,
+substring(games_country, 13,  15 ) as country,
+coalesce([Gold], 0) as Gold, --coalesce is to remove NULLS
+coalesce([Silver], 0) as Silver,
+coalesce([Bronze], 0) as Bronze
+
+FROM
+(
+SELECT concat(games, '-', n.region) as games_country, Medal, COUNT(1) as tot_medals
+FROM athlete_events$ a
+INNER JOIN noc_regions$ n
+ON a.noc = n.noc
+WHERE Medal <> 'NA' -- excluding NA from our result
+GROUP BY n.region, games, Medal
+--ORDER BY n.region, Medal
+) AS Source_table
+
+PIVOT --converts rows into columns
+( 
+	SUM(tot_medals) 
+	FOR[Medal] IN ([Gold], [Silver], [Bronze])
+ ) AS Pivot_table
+
+ ),
+
+ tot_medals as
+    		(SELECT games, nr.region as country, count(1) as total_medals
+    		FROM athlete_events$ oh
+    		JOIN noc_regions$ nr 
+			ON nr.noc = oh.noc
+    		where medal <> 'NA'
+    		GROUP BY games,nr.region )
+ 
+ SELECT DISTINCT t.games , concat(first_value(t.country) over(partition by t.games order by gold desc), ' - ',
+ 
+ first_value(gold) over(partition by t.games order by gold desc)) as Max_Gold,
+ 
+ concat(first_value(t.country) over(partition by t.games order by silver desc), ' - ',
+ 
+ first_value(silver) over(partition by t.games order by silver desc)) as Max_Silver,
+ 
+ concat(first_value(t.country) over(partition by t.games order by bronze desc), ' - ',
+ 
+ first_value(bronze) over(partition by t.games order by bronze desc)) as Max_Bronze, 
+   
+   concat(first_value(tm.country) over (partition by tm.games order by total_medals desc) , ' - '
+    			
+			, first_value(tm.total_medals) over(partition by tm.games order by total_medals desc)) as Max_Medals
+   FROM temp t
+   join tot_medals tm on tm.games = t.games and tm.country = t.country
+    ORDER BY games;
+```
+
+ ##### Asnwer:
+
+
+|games| Max_Gold | Max_Silver | Max_Bronze | Max_Medals |
+| --- | -------- | ---------- | ----------- | --------- |
+| 1896 Summer|	Germany - 25|	Greece - 18|	Greece - 20 | Greece - 48
+|1900 Summer|	UK - 59	|France - 101	|France - 82 | France - 235
+|1904 Summer|	USA - 128|	USA - 141|	USA - 125 | USA - 394
+|1906 Summer|	Greece - 24|	Greece - 48|	Greece - 30|Greece - 102
+|1908 Summer|	UK - 147|	UK - 131|	UK - 90| UK - 368
+|1912 Summer|	Sweden - 103|	UK - 64	|UK - 59 | Sweden - 190
+|1920 Summer|	USA - 111	|France - 71|	Belgium - 66| USA - 194
+|1924 Summer|	USA - 97	|France - 51|	USA - 49|USA - 182
+|1924 Winter|	UK - 16	|USA - 10	|UK - 11|UK - 31
+|1928 Summer|	USA - 47|	Netherlands - 29|	Germany - 41|USA - 88
+|1928 Winter|	Canada - 12|	Sweden - 13	|Switzerland - 12|Sweden - 16
+|1932 Summer|	USA - 81|	USA - 47	|USA - 61|USA - 189
+|1932 Winter|	Canada - 14|	USA - 21	|Germany - 14|USA - 34
+|1936 Summer|	Germany - 93|	Germany - 70|	Germany - 61|Germany - 224
+|1936 Winter|	UK - 12|	Canada - 13|	USA - 14|Norway - 18
+|1948 Summer|	USA - 87|	UK - 42	|USA - 35|USA - 152
+|1948 Winter|	Canada - 13|	Czech Republic - 17|	Switzerland - 19|Switzerland - 28
+|1952 Summer|	USA - 83|	Russia - 62	|Hungary - 32|USA - 134
+|1952 Winter|	Canada - 16|	USA - 25	|Sweden - 23|USA - 30
+|1956 Summer|	Russia - 68|	Russia - 46|	Russia - 55|Russia - 169
+|1956 Winter|	Russia - 26|	USA - 19|	Canada - 18|Russia - 37
+|1960 Summer|	USA - 81|	Russia - 63|	Russia - 45|Russia - 169
+|1960 Winter|	USA - 19|	Canada - 17|	Russia - 28|Russia - 42
+|1964 Summer|	USA - 95|	Russia - 63|	Russia - 51|Russia - 174
+|1964 Winter|	Russia - 30|	Sweden - 21|	Czech Republic - 17|Russia - 47
+|1968 Summer|	USA - 99|	Russia - 63|	Russia - 64|Russia - 192
+|1968 Winter|	Russia - 26|	Czech Republic - 19|	Canada - 18|Russia - 37
+|1972 Summer|	Russia - 107|	Germany - 83|	Germany - 96|Germany - 253
+|1972 Winter|	Russia - 36|	USA - 18|	Czech Republic - 19|Russia - 45
+|1976 Summer|	Germany - 123|	Russia - 95|	Russia - 77|Russia - 286
+|1976 Winter|	Russia - 38|	Czech Republic - 19|	Germany - 37|Germany - 64
+|1980 Summer|	Russia - 187|	Russia - 129|	Russia - 126|Russia - 442
+|1980 Winter|	USA - 24|	Russia - 29|	Sweden - 20|Russia - 54
+|1984 Summer|	USA - 186|	USA - 116|	Germany - 53|USA - 352
+|1984 Winter|	Russia - 29|	Czech Republic - 24|	Sweden - 21|Russia - 56
+|1988 Summer|	Russia - 134|	Germany - 91|	Russia - 99|Russia - 300
+|1988 Winter|	Russia - 40|	Germany - 22|	Sweden - 23|Russia - 66
+|1992 Summer|	Russia - 92|	Russia - 61|	USA - 85|USA - 224
+|1992 Winter|	Russia - 35|	Canada - 28|	Czech Republic - 27|Russia - 59
+|1994 Winter|	Sweden - 23|	Canada - 29|	Finland - 29|Germany - 40
+|1996 Summer|	USA - 159|	China - 70|	Australia - 84|USA - 259
+|1998 Winter|	USA - 25|	Russia - 32|	Finland - 49|Finland - 58
+|2000 Summer|	USA - 130|	Australia - 69|	Germany - 64|USA - 242
+|2002 Winter|	Canada - 52|	USA - 58|	Russia - 27|USA - 84
+|2004 Summer|	USA - 117|	Australia - 77|	Russia - 95|USA - 263
+|2006 Winter|	Sweden - 35|	Finland - 34|	USA - 32|Canada - 69
+|2008 Summer|	USA - 127|	USA - 110|	USA - 80|USA - 317
+|2010 Winter|	Canada - 67|	USA - 63|	Finland - 46|USA - 97
+|2012 Summer|	USA - 145|	USA - 57|	Australia - 59|USA - 248
+|2014 Winter|	Canada - 59|	Sweden - 32|	USA - 24|Canada - 86
+|2016 Summer|	USA - 139|	UK - 55|	USA - 71|USA - 264
+
+
 
