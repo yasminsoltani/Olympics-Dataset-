@@ -5,7 +5,7 @@
 
 
 
-try this project on your own [here](https://techtfq.com/blog/practice-writing-sql-queries-using-real-dataset) or find my raw SQL solution [here]
+try this project on your own [here](https://techtfq.com/blog/practice-writing-sql-queries-using-real-dataset) or find my raw SQL solution [here](https://github.com/yasminsoltani/Olympics-Dataset-/blob/main/Olympics%20Dataset%20from%20techTFQ/Olympics%20Dataset%20raw%20SQL%20solution.sql)
 
 Kaggle Dataset Download [Link](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
 
