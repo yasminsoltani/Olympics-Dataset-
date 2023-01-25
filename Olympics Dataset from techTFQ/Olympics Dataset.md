@@ -1098,4 +1098,34 @@ order by tot_medals desc
 |sport| tot_medals|
 |----|---------|
 | Hockey | 173 | 
-Hockey	173
+
+
+#### 20. Break down all olympic games where India won medal for Hockey and how many medals in each olympic games
+Write an SQL Query to fetch details of all Olympic Games where India won medal(s) in hockey
+
+```sql
+
+SELECT team, sport, games, count(medal) as total_medals
+FROM athlete_events$
+where sport = 'Hockey'
+and team = 'India'
+and medal != 'NA'
+group by Team, Games, sport
+order by total_medals desc
+```
+
+ ##### Asnwer:
+|team| sport | games | total_medals |
+| ---| ---- | ------ | ------------ | 
+|India|	Hockey|	1948 Summer|	20
+|India|	Hockey|	1936 Summer|	19
+|India|	Hockey|	1956 Summer|	17
+|India|	Hockey|	1968 Summer|	16
+|India|	Hockey|	1980 Summer|	16
+|India|	Hockey|	1964 Summer|	15
+|India|	Hockey|	1932 Summer|	15
+|India|	Hockey|	1928 Summer|	14
+|India|	Hockey|	1952 Summer|	14
+|India|	Hockey|	1972 Summer|	14
+|India|	Hockey|	1960 Summer|	13
+
