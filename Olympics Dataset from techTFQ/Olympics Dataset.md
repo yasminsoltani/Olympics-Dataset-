@@ -1015,3 +1015,28 @@ PIVOT --converts rows into columns
 
 
 
+#### 18. Which countries have never won gold medal but have won silver/bronze medals?
+Write a SQL Query to fetch details of countries which have won silver or bronze medal but never won a gold medal
+
+```sql
+
+ with number_of_medals as 
+ ( SELECT n.region,
+ SUM(CASE WHEN Medal = 'Gold' THEN 1 ELSE 0 END) as gold,
+ SUM(CASE WHEN Medal = 'Silver' THEN 1 ELSE 0 END) as silver,
+ SUM(CASE WHEN Medal = 'Bronze' THEN 1 ELSE 0 END) as bronze
+
+ from noc_regions$ n
+ inner join athlete_events$ a
+ on n.NOC = a.NOC
+ group by region
+)
+SELECT region, gold, silver, bronze
+from number_of_medals
+where gold = 0
+and (silver > 0 or bronze > 0 )
+order by silver, bronze desc
+```
+
+ ##### Asnwer:
+
