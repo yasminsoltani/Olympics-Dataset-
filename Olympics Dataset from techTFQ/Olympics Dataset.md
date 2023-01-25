@@ -666,41 +666,8 @@ PIVOT --converts rows into columns
 | Kosovo	              | 1    | 0      | 0
 | Paraguay	              | 0    | 17     | 0
 | Iceland	              | 0    | 15     | 2
-| Montenegro	              | 0    | 14     | 0
-| Malaysia	              | 0    | 11     | 5
-| Namibia	              | 0    | 4      | 0
-| Philippines	              | 0    | 3      | 7
-| Moldova	              | 0    | 3      | 5
-| Lebanon	              | 0    | 2      | 2
-| Sri Lanka	              | 0    | 2      | 0
-| Tanzania	              | 0    | 2      | 0
-| Ghana	                      | 0    | 1      | 22
-| Saudi Arabia	              | 0    | 1      | 5
-| Qatar	                      | 0    | 1      | 4
-| Kyrgyzstan	              | 0    | 1      | 2
-| Niger	                      | 0    | 1      | 1
-| Zambia	              | 0    | 1      | 1
-| Tonga	                      | 0    | 1      | 0
-| Virgin Islands, US	      | 0    | 1      | 0
-| Senegal	              | 0    | 1      | 0
-| Sudan	                      | 0    | 1      | 0
-| Guatemala                   |	0    | 1      | 0
-| Gabon	                      | 0    | 1      | 0
-| Curacao	              | 0    | 1      | 0
-| Cyprus	              | 0    | 1      | 0
-| Botswana	              | 0    | 1      | 0
-| Afghanistan	              | 0    | 0      | 2
-| Kuwait	              | 0    | 0      | 2
-| Iraq	                      | 0    | 0      | 1
-| Guyana	              | 0    | 0      | 1
-| Barbados	              | 0    | 0      | 1
-| Bermuda	              | 0    | 0      | 1
-| Djibouti	              | 0    | 0      | 1
-| Eritrea	              | 0    | 0      | 1
-| Monaco	              | 0    | 0      | 1
-| Mauritius	              | 0    | 0      | 1
-| Macedonia	              | 0    | 0      | 1
-| Togo	                      | 0    | 0      | 1
+
+##### showing up to 100th record only
 
 
 #### 15. List down total gold, silver and bronze medals won by each country corresponding to each olympic games
@@ -824,4 +791,107 @@ Write a SQL query to list down the  total gold, silver and bronze medals won by 
 |Australia|	1912 Summer|	5|	2|	3
 
 ##### showing up to 100th record only
+
+
+#### 16. Identify which country won the most gold, most silver and most bronze medals in each olympic games
+
+```sql
+ with temp as 
+ (
+SELECT substring(games_country, 1,  11 ) as games,
+substring(games_country, 13,  15 ) as country,
+coalesce([Gold], 0) as Gold, --coalesce is to remove NULLS
+coalesce([Silver], 0) as Silver,
+coalesce([Bronze], 0) as Bronze
+
+FROM
+(
+SELECT concat(games, '-', n.region) as games_country, Medal, COUNT(1) as tot_medals
+FROM athlete_events$ a
+INNER JOIN noc_regions$ n
+ON a.noc = n.noc
+WHERE Medal <> 'NA' -- excluding NA from our result
+GROUP BY n.region, games, Medal
+--ORDER BY n.region, Medal
+) AS Source_table
+
+PIVOT --converts rows into columns
+( 
+	SUM(tot_medals) 
+	FOR[Medal] IN ([Gold], [Silver], [Bronze])
+ ) AS Pivot_table
+
+ )
+ 
+ SELECT DISTINCT games , concat(first_value(country) over(partition by games order by gold desc), ' - ',
+ 
+ first_value(gold) over(partition by games order by gold desc)) as Max_Gold,
+ 
+ concat(first_value(country) over(partition by games order by silver desc), ' - ',
+ 
+ first_value(silver) over(partition by games order by silver desc)) as Max_Silver,
+ 
+ concat(first_value(country) over(partition by games order by bronze desc), ' - ',
+ 
+ first_value(bronze) over(partition by games order by bronze desc)) as Max_Bronze
+   
+   FROM temp
+    ORDER BY games;  
+```
+
+ ##### Asnwer:
+ 
+|games| Max_Gold | Max_Silver | Max_Bronze | 
+| --- | -------- | ---------- | ----------- |
+| 1896 Summer|	Germany - 25|	Greece - 18|	Greece - 20
+|1900 Summer|	UK - 59	|France - 101	|France - 82
+|1904 Summer|	USA - 128|	USA - 141|	USA - 125
+|1906 Summer|	Greece - 24|	Greece - 48|	Greece - 30
+|1908 Summer|	UK - 147|	UK - 131|	UK - 90
+|1912 Summer|	Sweden - 103|	UK - 64	|UK - 59
+|1920 Summer|	USA - 111	|France - 71|	Belgium - 66
+|1924 Summer|	USA - 97	|France - 51|	USA - 49
+|1924 Winter|	UK - 16	|USA - 10	|UK - 11
+|1928 Summer|	USA - 47|	Netherlands - 29|	Germany - 41
+|1928 Winter|	Canada - 12|	Sweden - 13	|Switzerland - 12
+|1932 Summer|	USA - 81|	USA - 47	|USA - 61
+|1932 Winter|	Canada - 14|	USA - 21	|Germany - 14
+|1936 Summer|	Germany - 93|	Germany - 70|	Germany - 61
+|1936 Winter|	UK - 12|	Canada - 13|	USA - 14
+|1948 Summer|	USA - 87|	UK - 42	|USA - 35
+|1948 Winter|	Canada - 13|	Czech Republic - 17|	Switzerland - 19
+|1952 Summer|	USA - 83|	Russia - 62	|Hungary - 32
+|1952 Winter|	Canada - 16|	USA - 25	|Sweden - 23
+|1956 Summer|	Russia - 68|	Russia - 46|	Russia - 55
+|1956 Winter|	Russia - 26|	USA - 19|	Canada - 18
+|1960 Summer|	USA - 81|	Russia - 63|	Russia - 45
+|1960 Winter|	USA - 19|	Canada - 17|	Russia - 28
+|1964 Summer|	USA - 95|	Russia - 63|	Russia - 51
+|1964 Winter|	Russia - 30|	Sweden - 21|	Czech Republic - 17
+|1968 Summer|	USA - 99|	Russia - 63|	Russia - 64
+|1968 Winter|	Russia - 26|	Czech Republic - 19|	Canada - 18
+|1972 Summer|	Russia - 107|	Germany - 83|	Germany - 96
+|1972 Winter|	Russia - 36|	USA - 18|	Czech Republic - 19
+|1976 Summer|	Germany - 123|	Russia - 95|	Russia - 77
+|1976 Winter|	Russia - 38|	Czech Republic - 19|	Germany - 37
+|1980 Summer|	Russia - 187|	Russia - 129|	Russia - 126
+|1980 Winter|	USA - 24|	Russia - 29|	Sweden - 20
+|1984 Summer|	USA - 186|	USA - 116|	Germany - 53
+|1984 Winter|	Russia - 29|	Czech Republic - 24|	Sweden - 21
+|1988 Summer|	Russia - 134|	Germany - 91|	Russia - 99
+|1988 Winter|	Russia - 40|	Germany - 22|	Sweden - 23
+|1992 Summer|	Russia - 92|	Russia - 61|	USA - 85
+|1992 Winter|	Russia - 35|	Canada - 28|	Czech Republic - 27
+|1994 Winter|	Sweden - 23|	Canada - 29|	Finland - 29
+|1996 Summer|	USA - 159|	China - 70|	Australia - 84
+|1998 Winter|	USA - 25|	Russia - 32|	Finland - 49
+|2000 Summer|	USA - 130|	Australia - 69|	Germany - 64
+|2002 Winter|	Canada - 52|	USA - 58|	Russia - 27
+|2004 Summer|	USA - 117|	Australia - 77|	Russia - 95
+|2006 Winter|	Sweden - 35|	Finland - 34|	USA - 32
+|2008 Summer|	USA - 127|	USA - 110|	USA - 80
+|2010 Winter|	Canada - 67|	USA - 63|	Finland - 46
+|2012 Summer|	USA - 145|	USA - 57|	Australia - 59
+|2014 Winter|	Canada - 59|	Sweden - 32|	USA - 24
+|2016 Summer|	USA - 139|	UK - 55|	USA - 71
 
