@@ -1043,8 +1043,8 @@ order by silver, bronze desc
 | region| gold| silver| bronze|
 |-----| ----| -----| -------- | 
 |Afghanistan	|0	|0	|2
-|Kuwait	0	|0	|2
-|Guyana	0	|0	|1
+|Kuwait|	0	|0	|2
+|Guyana	|0	|0	|1
 |Macedonia	|0	|0	|1
 |Mauritius	|0	|0	|1
 |Barbados	|0	|0	|1
@@ -1061,7 +1061,7 @@ order by silver, bronze desc
 |Niger	|0	|1	|1
 |Zambia	|0	|1	|1
 |Tonga	|0	|1	|0
-|Virgin Islands, US|	|0	|1|	0
+|Virgin Islands, US|	0	|1|	0
 |Senegal	|0	|1	|0
 |Sudan	|0	|1	|0
 |Guatemala	|0	|1	|0
@@ -1076,6 +1076,6 @@ order by silver, bronze desc
 |Moldova	|0	|3	|5
 |Namibia	|0	|4	|0
 |Malaysia	|0	|11	|5
-|Montenegro	|0	|14	|0
-|Iceland|	|0	|15	|2
-|Paraguay|	|0	|17	|0
+|Montenegro	|0	|14	|0|
+|Iceland|	|0	|15	|2|
+|Paraguay|	|0	|17	|0|
