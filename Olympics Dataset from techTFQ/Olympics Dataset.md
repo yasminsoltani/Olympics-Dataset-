@@ -1040,3 +1040,42 @@ order by silver, bronze desc
 
  ##### Asnwer:
 
+| region| gold| silver| bronze|
+|-----| ----| -----| -------- | 
+|Afghanistan	|0	|0	|2
+|Kuwait	0	|0	|2
+|Guyana	0	|0	|1
+|Macedonia	|0	|0	|1
+|Mauritius	|0	|0	|1
+|Barbados	|0	|0	|1
+|Bermuda	|0	|0	|1
+|Djibouti	|0	|0	|1
+|Eritrea	|0	|0	|1
+|Monaco	|0	|0	|1
+|Iraq	|0	|0	|1
+|Togo	|0	|0	|1
+|Ghana	|0	|1	|22
+|Saudi Arabia	|0	|1	|5
+|Qatar	|0	|1	|4
+|Kyrgyzstan	|0	|1	|2
+|Niger	|0	|1	|1
+|Zambia	|0	|1	|1
+|Tonga	|0	|1	|0
+|Virgin Islands, US|	|0	|1|	0
+|Senegal	|0	|1	|0
+|Sudan	|0	|1	|0
+|Guatemala	|0	|1	|0
+|Gabon	|0	|1	|0
+|Botswana	|0	|1	|0
+|Curacao	|0	|1	|0
+|Cyprus	|0	|1	|0
+|Lebanon	|0	|2	|2
+|Tanzania	|0	|2	|0
+|Sri Lanka	|0	|2	|0
+|Philippines	|0	|3	|7
+|Moldova	|0	|3	|5
+|Namibia	|0	|4	|0
+|Malaysia	|0	|11	|5
+|Montenegro	|0	|14	|0
+|Iceland|	|0	|15	|2
+|Paraguay|	|0	|17	|0
