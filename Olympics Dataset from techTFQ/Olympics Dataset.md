@@ -431,6 +431,26 @@ ORDER BY AGE desc
 
 #### 10. Find the Ratio of male and female athletes participated in all olympic games
 Write a SQL query to get the ratio of male and female participants
+```sql
+
+with m as
+(SELECT COUNT(Sex) as tot_males
+FROM athlete_events$
+WHERE Sex = 'M'
+GROUP BY Sex
+),
+
+f as
+(SELECT COUNT(Sex) as tot_females
+FROM athlete_events$
+WHERE Sex = 'F'
+GROUP BY Sex
+)
+
+SELECT concat('1: ', str(CAST(tot_males/tot_females AS decimal), 4, 3)) as ratio --I tried converting the ratio in decimal using CAST and 
+-- then str() to return specific number of digits and decimal places but did not succeed as the final output was still 2 instead than 2.64 :(
+FROM m, f
+```
 
 
 ##### Asnwer:
