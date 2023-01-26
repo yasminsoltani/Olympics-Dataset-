@@ -4,7 +4,7 @@
 <img src="https://user-images.githubusercontent.com/103854541/213895951-0cb21ca5-1b7c-4c01-a033-7a3c3ebf25ce.jpg" width="500" height="500"> 
 
 
-#### Introduction
+## Introduction
 The goal of this project is to become acquainted with SQL concepts by solving real-world data questions; we will accomplish this by downloading 120 years of Olympics History dataset from Kaggle and answering each question provided by techTFQ accordingly.
 
 try this project on your own [here](https://techtfq.com/blog/practice-writing-sql-queries-using-real-dataset) or find my raw SQL solution [here](https://github.com/yasminsoltani/Olympics-Dataset-/blob/main/Olympics%20Dataset%20from%20techTFQ/Olympics%20Dataset%20raw%20SQL%20solution.sql)
